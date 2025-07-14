@@ -26,7 +26,7 @@ def send_to_azure_openai(endpoint: str, api_key: str, deployment_name: str, mess
         "max_tokens": 1000
     }
 
-    response = requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload, timeout=10)
     response.raise_for_status()  # Raises exception for 4xx/5xx errors
 
     return response.json()["choices"][0]["message"]["content"]
