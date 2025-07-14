@@ -13,7 +13,7 @@ def send_to_azure_openai(endpoint: str, api_key: str, deployment_name: str, mess
     Returns:
         str: The content of the assistant's reply
     """
-    url = f"{endpoint}openai/deployments/{deployment_name}/chat/completions?api-version=2024-02-15-preview"
+    url = f"{endpoint.rstrip('/')}/openai/deployments/{deployment_name}/chat/completions?api-version=2024-02-15-preview"
 
     headers = {
         "Content-Type": "application/json",
